@@ -1,0 +1,269 @@
+/* reset bootstrap */
+.form-control[readonly] {
+	background: #fff;
+}
+
+.form-control[disabled] {
+	background: #eee !important;
+}
+
+.btn-primary {
+	background-color: $btn-primary-color;
+	border-color: $btn-primary-color;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+	background-color: $btn-primary-color;
+	border-color: $btn-primary-color;
+}
+
+.btn-primary:hover {
+	background-color: $btn-primary-hover-color;
+	border-color: $btn-primary-color;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+	background-color: $btn-primary-color;
+	border-color: $btn-primary-color;
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+	background-color: $btn-primary-color;
+	border-color: $btn-primary-color;
+}
+
+.btn-primary[disabled],
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+	background-color: #999;
+	border-color: #999;
+}
+
+.btn-warning {
+	background-color: $btn-waring-color;
+	border-color: $btn-waring-color;
+}
+
+.btn-warning:focus,
+.btn-warning.focus {
+	background-color: $btn-waring-color;
+	border-color: $btn-waring-color;
+}
+
+.btn-warning:hover {
+	background-color: $btn-waring-hover-color;
+	border-color: $btn-waring-color;
+}
+
+.btn-warning:active,
+.btn-warning.active,
+.open > .dropdown-toggle.btn-warning {
+	background-color: $btn-waring-color;
+	border-color: $btn-waring-color;
+}
+
+.btn-warning:active:hover,
+.btn-warning.active:hover,
+.open > .dropdown-toggle.btn-warning:hover,
+.btn-warning:active:focus,
+.btn-warning.active:focus,
+.open > .dropdown-toggle.btn-warning:focus,
+.btn-warning:active.focus,
+.btn-warning.active.focus,
+.open > .dropdown-toggle.btn-warning.focus {
+	background-color: $btn-waring-color;
+	border-color: $btn-waring-color;
+}
+
+.btn-warning[disabled],
+.btn-warning.disabled:hover,
+.btn-warning[disabled]:hover,
+fieldset[disabled] .btn-warning:hover,
+.btn-warning.disabled:focus,
+.btn-warning[disabled]:focus,
+fieldset[disabled] .btn-warning:focus,
+.btn-warning.disabled.focus,
+.btn-warning[disabled].focus,
+fieldset[disabled] .btn-warning.focus {
+	background-color: #999;
+	border-color: #999;
+}
+
+.modal.fade .modal-dialog {
+	transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+	transform: scale(0.1) !important;
+}
+
+.modal.in .modal-dialog {
+	transform: scale(1) !important;
+}
+
+.modal-header {
+	background: $active-color;
+	color:#fff;
+}
+.modal-content{
+	border:1px solid $active-color;
+		.btn {
+			height: 40px;
+			min-width: 110px;
+		}
+	.uib-timepicker {
+		.btn{
+			padding-top: 0;
+			padding-bottom: 0;
+			border-radius: 2px;
+			height: 34px;
+			min-width: 0;
+		}
+
+	}
+
+}
+
+.progress-bar {
+	background-color: $btn-primary-color !important;
+}
+
+label {
+	font-weight: normal;
+}
+
+.checkbox-inline, .radio-inline {
+	padding-left: 27px !important;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+	margin-left: -18px !important;
+}
+
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+	border: 1px solid #eee !important;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.text-muted {
+	color: #bbb !important;
+}
+
+@media (min-width: 1400px) {
+	.container {
+		width: 1400px;
+	}
+}
+
+.form-control {
+	padding: 6px 0 6px 6px;
+	border-radius: 2px;
+}
+
+.btn {
+	padding-top: 0;
+	padding-bottom: 0;
+	border-radius: 2px;
+	@extend .h30;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+	background-color: #fbfcfd;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+	background-color: #fff;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+	border-bottom: 1px solid #fbfcfd;
+	border-top: 0;
+}
+
+.table-hover > tbody > tr:hover {
+	/*background-color: #ddebf9;*/
+}
+
+.has-error .form-control {
+	border-color: $red;
+}
+
+.has-error .form-control:focus {
+	border-color: $red;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px $red;
+}
+
+/*去掉ie的xx和大眼睛*/
+::-ms-clear, ::-ms-reveal {
+	display: none;
+}
+
+body {
+	font-family: 'Microsoft YaHei';
+}
+
+ul {
+	padding-left: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+a {
+	color: $link-color;
+}
+
+a:hover,
+a:active,
+a:focus {
+	text-decoration: none;
+}
+
+dt {
+	font-weight: normal;
+}
+
+mark {
+	color: $active-color;
+	background: transparent;
+}
+
+input.border-error {
+	border-color: 1px solid #a94442;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	&:focus {
+		border-color: #843534;
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+	}
+}
+
+.ng-table-pager {
+	.btn {
+		height: 30px;
+	}
+}
+
+/*ckeditor隐藏上传图片里面的高级按钮*/
+.cke_dialog_tabs .cke_dialog_tab[title="高级"] {
+	display: none;
+}
+.ng-table th.sortable .sort-indicator {
+	display: inline-block;
+}

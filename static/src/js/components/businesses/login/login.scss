@@ -1,0 +1,87 @@
+.login{
+	.login-box{
+		background: url("../images/paybg.jpg") ;
+		color: #fff;
+		height: 600px;
+		.user-login{
+			width: 400px;
+			position: absolute;
+			left: 50%;
+			margin-left: -200px;
+			top:20%;
+		}
+	}
+	.partner{
+		.bank-logo{
+		    background-image: url(../images/bank-logo.min.png);
+		    background-repeat: no-repeat;
+		    display: block;
+		    width: 125px;
+		    height: 28px;
+		    overflow: hidden;
+		    text-indent: -9999px;
+		    float: left;
+		    cursor: pointer;
+		}
+		.bank-list{
+			.bank-item{
+				padding: 20px;
+				float: left;
+				#BANK_ICBC {
+					background-position: 0 -140PX;
+				}
+				#BANK_ABC {
+					background-position: 0 -532PX;
+				}
+				#BANK_BOC {
+					background-position: 0 -840PX;
+				}
+				#BANK_CBHB {
+					background-position: 0 -56PX;
+				}
+				#BANK_CCB {
+					background-position: 0 -336PX;
+				}
+				#BANK_CEB {
+					background-position: 0 -168PX;
+				}
+				#BANK_BOBJ {
+					background-position: 0 -28PX;
+				}
+				#BANK_CMB {
+					background-position: 0 -784PX;
+				}
+				#BANK_CITIC {
+					background-position: 0 -896PX;
+				}
+				#BANK_GDB {
+					background-position: 0 -196PX;
+				}
+				#BANK_CIB {
+					background-position: 0 -756PX;
+				}
+				#QPAY_UNIONPAY {
+					background-position: 0 -2605PX;
+				}
+				#WEIXIN_QRCODE {
+					background-position: 0 -2669PX;
+				}
+				#ALIPAY_QRCODE {
+					background-position: 0 -2725PX;
+				}
+			}
+		}
+	}
+	.copyright {
+		background: #111;
+		font-size: 13px;
+		text-align: center;
+		color: #555555;
+		padding-top: 28px;
+		padding-bottom: 28px;
+		border-top: 1px solid #303030;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+}

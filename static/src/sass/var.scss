@@ -1,0 +1,547 @@
+@at-root .icon {
+	width: 18px;
+	height: 18px;
+	vertical-align: text-bottom;
+	fill: currentColor;
+}
+
+.yellow {
+	color: $yellow;
+	font-size: 26px;
+}
+
+.main-color {
+	color: $active-color;
+	font-size: 26px;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.h100 {
+	height: 100% !important;
+}
+
+.w100 {
+	width: 100% !important;
+}
+
+.oh {
+	overflow: hidden;
+}
+
+.relative {
+	position: relative;
+}
+
+.block {
+	display: block;
+}
+
+.p0 {
+	padding: 0 !important;
+}
+
+.pt0 {
+	padding-top: 0 !important;
+}
+
+.p5 {
+	padding: 5px;
+}
+
+.p20 {
+	padding: 20px;
+}
+
+.p35 {
+	padding: 35px;
+}
+
+.pl10 {
+	padding-left: 10px;
+}
+
+.pl15 {
+	padding-left: 15px;
+}
+
+.pl20 {
+	padding-left: 20px;
+}
+
+.pr10 {
+	padding-right: 10px;
+}
+
+.pr15 {
+	padding-right: 15px;
+}
+
+.pr20 {
+	padding-right: 20px;
+}
+
+.pt10 {
+	padding-top: 10px;
+}
+
+.pt15 {
+	padding-top: 15px !important;
+}
+
+.pt20 {
+	padding-top: 20px;
+}
+
+.pb0 {
+	padding-bottom: 0 !important;
+}
+
+.pb10 {
+	padding-bottom: 10px;
+}
+
+.pb20 {
+	padding-bottom: 20px;
+}
+
+.pt300 {
+	padding-top: 300px;
+}
+
+.ml0 {
+	margin-left: 0 !important;
+}
+
+.ml20s {
+	margin-left: -20px;
+}
+
+.ml10 {
+	margin-left: 10px;
+}
+.ml15 {
+	margin-left: 15px!important;
+}
+.ml20 {
+	margin-left: 20px;
+}
+
+.ml50 {
+	margin-left: 50px;
+}
+
+.mr10 {
+	margin-right: 10px;
+}
+
+.mr20 {
+	margin-right: 20px;
+}
+
+.mt40s {
+	margin-top: -41px;
+}
+
+.mt3 {
+	margin-top: 3px;
+}
+
+.mt4{
+	margin-top: 4px;
+}
+
+.mt5 {
+	margin-top: 5px;
+}
+
+.mt5s {
+	margin-top: -5px;
+}
+
+.mt10 {
+	margin-top: 10px;
+}
+.mt15 {
+	margin-top: 15px;
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+.mt30 {
+	margin-top: 30px;
+}
+
+.mt25 {
+	margin-top: 25px;
+}
+
+.mt40 {
+	margin-top: 40px;
+}
+
+.mb5 {
+	margin-bottom: 5px;
+}
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+.mb20 {
+	margin-bottom: 20px;
+}
+
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.h5 {
+	height: 5px !important;
+}
+
+.h25 {
+	height: 25px !important;
+}
+
+.h30 {
+	height: 30px;
+}
+
+.h40 {
+	height: 40px;
+}
+
+.h50 {
+	height: 50px !important;
+}
+.h60 {
+	height: 60px !important;
+}
+.h70 {
+	height: 70px !important;
+}
+.lh30 {
+	line-height: 30px;
+}
+
+.lh35 {
+	line-height: 35px !important;
+}
+
+.lh40 {
+	line-height: 40px;
+}
+
+.lh50 {
+	line-height: 50px;
+}
+
+.lh60 {
+	line-height: 60px;
+}
+.lh70 {
+	line-height: 70px;
+}
+.min-w50 {
+	min-width: 50px !important;
+}
+
+.w50 {
+	width: 50px !important;
+}
+
+.w110 {
+	width: 110px;
+}
+
+.w130 {
+	width: 130px;
+}
+
+.w180 {
+	width: 180px !important;
+}
+
+.w122 {
+	width: 122px !important;
+	@media (max-width: 1366px) {
+		width: 106px !important;
+	}
+}
+
+.w196 {
+	width: 196px !important;
+}
+
+.w250 {
+	width: 250px !important;
+}
+
+.w290 {
+	width: 290px !important;
+}
+
+.w400 {
+	width: 400px !important;
+}
+
+.w500 {
+	width: 500px !important;
+}
+
+.w510 {
+	width: 510px !important;
+}
+
+.w700 {
+	width: 700px !important;
+}
+
+.w60 {
+	width: 60% !important;
+}
+
+.w75 {
+	width: 75% !important;
+}
+
+.w80s {
+	width: 80px !important;
+}
+
+.w90s {
+	width: 90px !important;
+}
+
+.w100s {
+	width: 100px !important;
+}
+
+.w140s {
+	width: 140px !important;
+}
+
+.w80 {
+	width: 80% !important;
+}
+
+.fw {
+	font-weight: bold;
+}
+
+.fs12 {
+	font-size: 12px;
+}
+
+/*lqd*/
+.fs14{
+	font-size: 14px;
+}
+
+.fs16 {
+	font-size: 16px;
+}
+.fs20 {
+	font-size: 20px;
+}
+.fb {
+	font-weight: bold;
+}
+
+.tl-left {
+	text-align: left !important;
+}
+
+.tc {
+	text-align: center !important;
+}
+
+.tr {
+	text-align: right !important;
+}
+
+.text-warning {
+	color: #ff6900;
+}
+
+.text-danger {
+	color: #FF0000 !important;
+}
+
+.text-error {
+	color: $red;
+	font-size: 12px;
+}
+
+p.text-error {
+	display: inline-block;
+}
+
+.bg-c9ebf7 {
+	background: #c9ebf7;
+}
+
+.bg-a7c07f {
+	background: #a7c07f;
+}
+
+.bg-f5795f {
+	background: $btn-waring-color;
+	color: #fff;
+}
+
+/*lqd*/
+.bg-2c3e50{
+	background: #2c3e50;
+	color:#728ba4
+}
+
+.bg-table {
+	background: #FDE0CE !important;
+}
+
+.border-error {
+	border: 1px solid $red !important;
+}
+
+.border-error:focus {
+	border-color: $red;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px $red;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px $red;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.vertical-top {
+	vertical-align: top;
+}
+
+.vertical-middle {
+	vertical-align: middle;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #ddd;
+}
+
+.center,
+.margin-auto {
+	margin: 0 auto;
+}
+
+/*表格溢出隐藏*/
+/*table{
+    border-collapse: collapse;
+    table-layout: fixed;!*保持单元格的等宽*!
+}
+td{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}*/
+
+.text-status {
+	color: #ff5959;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #ddd;
+}
+
+/* ------------------------------------------- */
+/* Slide Top
+/* ------------------------------------------- */
+.slide-top {
+	transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	/* easeOutQuad */
+	transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	/* easeOutQuad */
+}
+
+.slide-top.ng-enter {
+	transform: translateY(60px);
+	transition-duration: 250ms;
+	opacity: 0;
+}
+
+.slide-top.ng-enter-active {
+	transform: translateY(0);
+	opacity: 1;
+}
+/*三角形图标*/
+.sanjiaoT{
+	width:10px;
+	height:10px;
+	border-width:5px;
+	border-style:solid;
+	border-color:#a0a0a0 rgba(255,255,255,0) rgba(255,255,255,0)rgba(255,255,255,0);
+	&:hover{
+		border-color:#000 rgba(255,255,255,0) rgba(255,255,255,0) rgba(255,255,255,0);
+	}
+}
+.sanjiaoB{
+	width:10px;
+	height:10px;
+	border-width:5px;
+	border-style:solid;
+	border-color:rgba(255,255,255,0) rgba(255,255,255,0) #a0a0a0 rgba(255,255,255,0);
+	&:hover{
+		border-color:rgba(255,255,255,0) rgba(255,255,255,0) #000 rgba(255,255,255,0);
+	}
+}
+.sanjiaoL{
+	width:10px;
+	height:10px;
+	border-width:5px;
+	border-style:solid;
+	border-color:#fff #fff #fff #a0a0a0;
+	&:hover{
+		border-color:#fff #fff #fff #000;
+	}
+}
+.sanjiaoR{
+	width:10px;
+	height:10px;
+	border-width:5px;
+	border-style:solid;
+	border-color:#fff #a0a0a0 #fff #fff;
+	&:hover{
+		border-color:#fff #000 #fff #fff;
+	}
+}
+/*按钮样式*/
+.blueBtn{
+	width: 90px;
+	height: 30px;
+	border-radius: 2px;
+	background: #00b3ee;
+	color: #ffffff;
+	line-height: 30px;
+	display: inline-block;
+}
+
+/*溢出隐藏*/
+.overhide{
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}

@@ -1,0 +1,98 @@
+.main-box{
+  //height: 100%;
+  background-color: #e0e0e0;
+  .my-aside{
+    .my-nav{
+      height: 50px;
+      border-bottom: 5px solid;
+      .nav-list{
+        width: 80%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+      }
+      .closeListOne:hover{
+        color: #ff3333;
+      }
+      .nowChooseNav{
+        background-color: #f7f7f7;
+      }
+      .closeListSome{
+        margin-top: 10px;
+        margin-right: 85px;
+      }
+    }
+    .aside{
+      height: 50px;
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+      background: url("../images/header-profile.png") repeat-x;
+      .asideListFirst{
+        border-radius: 0;
+        background: url("../images/header-profile.png") repeat-x;
+        color: #f7f7f7;
+      }
+      .asideListFirst:hover{
+        background: #777777;
+      }
+      .asideListSecondUl{
+        @extend .asideListFirst;
+        color: #f7f7f7;
+        .asideListSecond{
+          a{
+            color: #f7f7f7;
+          }
+          a:hover{
+            color: #ffffff;
+            //background: url("../images/header-profile.png") repeat-x;
+            background-color: #777777;
+          }
+        }
+      }
+      .asideListSecondUl:hover{
+        background: url("../images/header-profile.png") repeat-x;
+      }
+
+      .asideListActive {
+        background: #777777;
+      }
+      .hidden-xs {
+        a{
+          @extend .h50;
+          @extend .lh50;
+          //@extend .fw;
+          color: #f7f7f7;
+          padding: 0 20px;
+          i{
+            font-weight: normal;
+          }
+        }
+        a:hover {background-color: #777777}
+      }
+    }
+  }
+  .main-content{
+    box-sizing: border-box;
+    height: 86%;
+    padding: 0px 20px 10px 20px;
+    .main-section{
+      height: 100%;
+      background-color: #ffffff;
+      margin-top: 10px;
+      padding: 20px;
+    }
+    .main-foot {
+      position: fixed;
+      bottom:0;
+      width: 100%;
+      line-height: 30px;
+      height: 30px;
+      background-color: #f7f7f7;
+      right: 0px;
+      padding-right: 40px;
+    }
+  }
+}

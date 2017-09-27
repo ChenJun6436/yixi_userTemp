@@ -1,0 +1,17 @@
+//sass统一入口配置
+@import "./mixin";
+@import "./color";
+@import "./var";
+@import "./reset";
+@import "./component";
+
+//指令（组件）
+
+//业务
+@import "../js/components/businesses/layout/layout";
+@import "../js/components/businesses/login/login";
+@import "../js/components/businesses/userManagement/userManagement";
+@import "../js/components/businesses/orderManagement/orderManagement";
+@import "../js/components/businesses/chen/chen";
+@import "../js/components/businesses/jun/jun";
+

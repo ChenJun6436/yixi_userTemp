@@ -1,0 +1,63 @@
+<div class="my-aside">
+    <div class="aside">
+        <ul class="nav nav-tabs fl">
+            <li role="presentation" class="dropdown"
+                ng-repeat="first in vm.userListFirst track by $index"
+               >
+                <button class="dropdown-toggle btn h50 fs16 asideListFirst"
+                    data-toggle="dropdown" href="javaScript:;" role="button" aria-haspopup="true" aria-expanded="false"
+                        ng-class="{asideListActive: $index===vm.chooseFirstOne}"
+                    ng-click="vm.chooseFirst($index)">
+                    {{first}} <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu asideListSecondUl"  aria-labelledby="dLabel">
+                    <li ng-repeat="second in vm.userListSecond" class="asideListSecond"><a href="javaScript:;" ng-click="vm.pushNavList(second)">{{second}}</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!--glyphicon glyphicon-user-->
+        <!--glyphicon glyphicon-trash-->
+        <ul class="nav navbar-top-links navbar-right fr">
+            <li class="hidden-xs fl">  <a href="/"><i class="glyphicon glyphicon-home"></i> 网站首页 </a></li>
+            <li class="hidden-xs fl">  <a href="/manage_Index_clearCache.html"><i class="glyphicon glyphicon-trash"></i> 清除缓存 </a></li>
+            <li class="hidden-xs fl">  <a href="/manage_Index_clearCache.html"><i class="glyphicon glyphicon-user"></i> {{userName}} </a></li>
+            <li class="hidden-xs fl">  <a href="/manage_Index_clearCache.html"><i class="glyphicon glyphicon-off"></i> 退出 </a></li>
+        </ul>
+    </div>
+    <div class="my-nav">
+        <div class="collapse navbar-collapse fl" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="javaScript:;" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li ng-repeat="navone in vm.navList track by $index" ng-class="{nowChooseNav:vm.nowChooseNav===$index}">
+                    <a ng-click="vm.chooseNav($index)" href="javaScript:;">{{navone}}
+                        <span class="glyphicon glyphicon-remove cursor-pointer closeListOne" ng-click="vm.delNavList($index)"></span>
+                    </a>
+                </li>
+                <!--分页效果可以操作dom的position，也可以使用数组来驱动视图-->
+                <li>
+                    <a href="javaScript:;" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="fr">
+            <div role="presentation" class="dropdown dropdown-menu-left">
+                <button class="dropdown-toggle btn btn-info closeListSome"
+                        data-toggle="dropdown" href="javaScript:;" role="button" aria-haspopup="true" aria-expanded="false">
+                    关闭操作 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu asideListSecondUl dropdown-menu-left"  aria-labelledby="dLabel">
+                    <li class=""><a href="javaScript:;" ng-click="vm.delNowChoose()">关闭当前选项卡</a></li>
+                    <li class=""><a href="javaScript:;" ng-click="vm.delAllChoose()">关闭全部选项卡</a></li>
+                    <li class=""><a href="javaScript:;" ng-click="vm.delOtherChoose()">关闭其他选项卡</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

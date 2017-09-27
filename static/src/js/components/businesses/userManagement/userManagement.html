@@ -1,0 +1,432 @@
+<div class="authorityManagement">
+    <div class="main-content-header">
+        <span>用户管理</span>
+        <span class="fr"><span class="glyphicon glyphicon-refresh cursor-pointer"></span></span>
+    </div>
+    <div class="">
+        <div class="search-form">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="商户号或用户名">
+                </div>
+                <div class="form-group ml10">
+                    <input type="text" class="form-control"  placeholder="代理号或用户名">
+                </div>
+                <div class="form-group ml10">
+                    <select  class="form-control" ></select>
+                </div>
+                <div class="form-group ml10">
+                    <select  class="form-control"></select>
+                </div>
+                <div class="form-group ml10">
+                    <select  class="form-control"></select>
+                </div>
+                <div class="form-group ml10">
+                    <input type="text" class="layui-input form-control" style="width: 160px" id="startTime" placeholder="起止时间">
+                </div>
+                <div class="form-group ml10">
+                    <button class="btn btn-success ml10"><span class="glyphicon glyphicon-search"></span>搜索</button>
+                    <button class="btn btn-warning ml10"><span class="glyphicon glyphicon-export"></span>导出数据</button>
+                </div>
+            </form>
+        </div>
+        <table ng-table="vm.tableParams" class="table table-hover">
+            <tr ng-repeat="a in $data">
+                <td title="'#'" >{{a.PK}}</td>
+                <td title="'商户号'" >{{a.menuName}}</td>
+                <td title="'用户号'" >{{a.parentName}}</td>
+                <td title="'用户类型'" >{{a.menuLevelName}}</td>
+                <td title="'上级用户'" >{{a.menuLevelName}}</td>
+                <td title="'状态'" style="padding: 0" >
+                    <input name="status" type="checkbox" data-size="small">
+                <td title="'认证'">
+                    <span class="label label-success ml5 cursor-pointer fwN"  ng-click="vm.showUserAuthentification()">{{a.menuLevelName}}</span>
+                </td>
+                <td title="'账户总额'" >
+                    <span class="label label-success ml5 cursor-pointer fwN" ng-click="vm.showUserTotalAmount()">{{a.menuLevelName}}</span>
+                </td>
+                <td title="'注册时间'" >{{a.menuLevelName}}</td>
+                <td title="'操作'" >
+                    <span class="label label-success ml5 cursor-pointer fwN" ng-click="vm.showCaseUser()">提现</span>
+                    <span class="label label-info ml5 cursor-pointer fwN" ng-click="vm.showAisleUser()">通道</span>
+                    <span class="label label-warning ml5 cursor-pointer fwN" ng-click="vm.showRateUser()">费率</span>
+                    <span class="label label-primary ml5 cursor-pointer fwN" ng-click="vm.showPasswordUser()">密码</span>
+                    <span class="label label-info ml5 cursor-pointer fwN" ng-click="vm.showEditorUser()">编辑</span>
+                    <span class="label label-danger ml5 cursor-pointer fwN" ng-click="vm.showDeleteUser()">删除</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--认证 modal-->
+<div class="modal fade modal-open" id="userAuthentification" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog smallModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">用户认证</h4></div>
+            <div class="modal-body">
+                <form class="form-horizontal mt20">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">商户密钥：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="商户密钥">
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-warning" style="height: 32px"><span class="glyphicon glyphicon-refresh cursor-pointer">换一换密钥</span></button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail4" class="col-sm-3 control-label">商户认证：</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="inputEmail4"></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer tc">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-default">取消
+                </button>
+                <button type="button" ng-click="vm.openScPublic()" class="btn btn-info">提交保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--账户总额 modal-->
+<div class="modal fade modal-open" id="userTotalAmount" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog smallModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">商户：陈俊{{x}}</h4></div>
+            <div class="modal-body">
+                <ul class="fs16">
+                    <li class="mt5">可用余额：<span class="text-danger">0.00</span>元</li>
+                    <li class="mt5">冻结余额：<span class="text-danger">0.00</span>元</li>
+                </ul>
+                <div class="mt20">
+                    <button class="btn btn-info" ng-click="vm.showAddAmount()">加减余额</button>
+                    <button class="btn btn-warning" ng-click="vm.showFrostAmount()">解冻/冻结余额</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--增加金额 modal-->
+<div class="modal fade modal-open" id="addUserTotalAmount" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog smallModal" role="document" style="top: 75px;    left: -8px;">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">增加/减少资金{{x}}</h4></div>
+            <div class="modal-body">
+                <ul class="fs16 p20" style="border: 1px solid #e0e0e0">
+                    <li class="mt5">可用余额：<span class="text-danger">0.00</span>元</li>
+                    <li class="mt5">冻结余额：<span class="text-danger">0.00</span>元</li>
+                </ul>
+                <div class="mt20">
+                    <form class="form-horizontal mt20" name="addForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">操作：</label>
+                            <div class="col-sm-6 radio" style="margin-left: 17px;">
+                                <input type="radio" name="a1">增加金额
+                                <span class="inline-block w50"></span>
+                                <input type="radio" name="a1" class="ml20">减少金额
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bianAmont" class="col-sm-3 control-label">变动金额：</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="bianAmont" placeholder="请输入余额">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="beizhu1" class="col-sm-3 control-label">备注：</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" name="" id="beizhu1" cols="30" rows="6" placeholder="请输入内容"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group pl20">
+                            <button name="addForm" class="btn btn-info">立即提交</button>
+                            <button type="reset" name="addForm" class="btn btn-default">重置</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--冻结金额 modal-->
+<div class="modal fade modal-open" id="frostUserTotalAmount" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog smallModal" role="document" style="top: 75px;    left: -8px;">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30">冻结/解冻资金{{x}}</h4></div>
+            <div class="modal-body">
+                <ul class="fs16 p20" style="border: 1px solid #e0e0e0">
+                    <li class="mt5">可用余额：<span class="text-danger">0.00</span>元</li>
+                    <li class="mt5">冻结余额：<span class="text-danger">0.00</span>元</li>
+                </ul>
+                <form class="form-horizontal mt20" name="frostForm">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">操作：</label>
+                        <div class="col-sm-6 radio" style="margin-left: 17px;">
+                            <input type="radio" name="a2" ng-icheck>冻结金额
+                            <span class="inline-block w50"></span>
+                            <input type="radio" name="a2" class="ml20"  ng-icheck>解冻金额
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bianAmont" class="col-sm-3 control-label">变动金额：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="bianAmont" placeholder="请输入余额">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="beizhu1" class="col-sm-3 control-label">备注：</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" name="" id="beizhu1" cols="30" rows="6" placeholder="请输入内容"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group pl20">
+                        <button name="frostForm" class="btn btn-info">立即提交</button>
+                        <button type="reset" name="frostForm" class="btn btn-default">重置</button>
+                    </div>
+                </form>
+            </div>
+            <!--<div class="modal-footer tc">-->
+            <!--<button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-default">取消-->
+            <!--</button>-->
+            <!--<button type="button" ng-click="vm.openScPublic()" class="btn btn-info">提交保存</button>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<!--提现-->
+<div class="modal fade modal-open" id="caseUser" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog smallModal" role="document" style="top: 75px;    left: -8px;">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">提现设置{{x}}</h4></div>
+            <div class="modal-body">
+                <div class="form-group block h50">
+                    <label class="col-sm-3 control-label lh40" style="width: 100px">应用规则：</label>
+                    <div class="col-sm-6 radio" style="margin-left: 17px;">
+                        <input type="radio" name="a2">系统规则
+                        <span class="inline-block" style="width: 20px"></span>
+                        <input type="radio" name="a2" class="ml20">个人规则
+                    </div>
+                </div>
+                <div class="form-group pl20">
+                    <button class="btn btn-primary">提交保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--通道-->
+<div class="modal fade modal-open" id="aisleUser" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog" role="document" style="top: 75px;left: -8px;width: 800px;">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal1">编辑通道{{x}}</h4></div>
+            <div class="modal-body">
+                <table ng-table="vm.tableParams" class="table table-hover table-bordered">
+                    <tr ng-repeat="a in $data">
+                        <td title="'接口名称'" >{{a.PK}}</td>
+                        <td title="'接口状态'" >
+                            <input name="apiStatus" type="checkbox" data-size="small"></td>
+                        <td title="'操作'">
+                            <div class="form-group inline-block">
+                                <div class="radio text-left" style="margin-left: 17px;">
+                                    <input type="radio" name="a2">单独
+                                    <span class="inline-block" style="width: 20px"></span>
+                                    <input type="radio" name="a2" class="ml20">轮询
+                                </div>
+                                <select style="width: 260px" class="form-control"></select>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group pl20">
+                    <button class="btn btn-primary">提交保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--费率-->
+<div class="modal fade modal-open" id="rateUser" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog" role="document" style="top: 75px;left: -8px;width: 600px;">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">编辑费率{{x}}</h4></div>
+            <div class="modal-body">
+                <p class="text-danger">注：费率为千分之一</p>
+                <table ng-table="vm.tableParams" class="table table-hover">
+                    <tr ng-repeat="a in $data">
+                        <td title="'接口名称'" >{{a.PK}}</td>
+                        <td title="'充值费率'" >
+                            <input type="text" class="form-control inline-block" style="width: 60px"
+                                   ng-model="a.PK"></td>
+                        <td title="'封顶费率'" >
+                            <input type="text" class="form-control  inline-block" style="width: 60px"
+                                   ng-model="a.PK"></td>
+                    </tr>
+                </table>
+                <div class="form-group pl20">
+                    <button class="btn btn-primary">提交保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--密码-->
+<div class="modal fade modal-open" id="passwordUser" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog smallModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">密码修改{{x}}</h4></div>
+            <div class="modal-body">
+                <form class="form-horizontal mt20">
+                    <div class="form-group">
+                        <label for="loginPw" class="col-sm-3 control-label">登录密码：</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="loginPw" placeholder="修改登录密码">
+                        </div>
+                        <div class="col-sm-4 lh30">
+                            不修改密码，请留空
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="givePw" class="col-sm-3 control-label">支付密码：</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="givePw" placeholder="修改支付密码">
+                        </div>
+                        <div class="col-sm-4 lh30">
+                            不修改密码，请留空
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group pl20 mt40 text-center">
+                    <button class="btn btn-primary">提交保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑-->
+<div class="modal fade modal-open" id="editorUser" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal">
+    <div class="modal-dialog" style="width:450px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">资料编辑{{x}}</h4></div>
+            <div class="modal-body">
+                <form class="form-horizontal mt20">
+                    <div class="form-group">
+                        <label for="uname" class="col-sm-3 control-label">姓名：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="uname" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="usex" class="col-sm-3 control-label">性别：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="usex" placeholder="性别">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="unumber" class="col-sm-3 control-label">身份证号：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="unumber" placeholder="身份证号">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="udate" class="col-sm-3 control-label">出生日期：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="layui-input form-control" id="udate" placeholder="1970-01-01">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uphone" class="col-sm-3 control-label">手机号码：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="uphone" placeholder="手机号码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uqq" class="col-sm-3 control-label">联系QQ：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="uqq" placeholder="联系QQ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uemail" class="col-sm-3 control-label">Email：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="uemail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ulevel" class="col-sm-3 control-label">用户级别：</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="ulevel" ></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="uadress" class="col-sm-3 control-label">联系地址：</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="uadress" placeholder="联系地址">
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group pl20 mt40 text-center">
+                    <button class="btn btn-primary">提交保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除-->
+<div class="modal fade modal-open" id="deleteUser" tabindex="-1" role="dialog"
+     aria-labelledby="addGrantsModal" style="top:50%;margin-top: -200px">
+    <div class="modal-dialog" style="width:450px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">确认删除{{x}}</h4></div>
+            <div class="modal-body">
+                <p>确定要删除吗？</p>
+                <div class="text-center mt30">
+                    <button class="btn btn-primary">确定</button>
+                    <button class="btn btn-default ml20">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="authorityManagement">
+    <div class="main-content-header">
+        <span>菜单列表</span>
+        <span class="fr"><button class="btn btn-success" ng-click="vm.showAddMenu()">添加菜单</button></span>
+    </div>
+    <div class="">
+        <table ng-table="vm.tableParams" class="table table-hover">
+            <tr ng-repeat="a in $data">
+                <td title="'#'" >{{a.PK}}</td>
+                <td title="'菜单名称'" >{{a.menuName}}</td>
+                <td title="'控制器名称'" >{{a.parentName}}</td>
+                <td title="'菜单级别'" >{{a.menuLevelName}}</td>
+                <td title="'操作'" >
+                    <span class="label label-info ml10 cursor-pointer fwN"
+                        ng-click="vm.showAddChildMenu()">
+                        <span class="glyphicon glyphicon-plus mr5"></span>添加子菜单
+                    </span>
+                    <span class="label label-primary ml10 cursor-pointer fwN"
+                          ng-click="vm.showEdtChildMenu()">
+                        <span class="glyphicon glyphicon-pencil mr5"></span>编辑
+                    </span>
+                    <span class="label label-danger ml10 cursor-pointer fwN"
+                          ng-click="vm.showDelChildMenu()">
+                        <span class="glyphicon glyphicon-trash mr5"></span>删除
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--添加菜单-->
+<div class="modal fade modal-open" id="addMenu" tabindex="-1" role="dialog" aria-labelledby="addGrantsModal" style="top:20%">
+    <div class="modal-dialog smallModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header h50">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title fs16 lh30" id="addGrantsModal">添加菜单</h4></div>
+            <div class="modal-body">
+                <form class="form-horizontal mt20">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">菜单图标：</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入菜单图标名">
+                        </div>
+                        <div class="col-sm-4 lh30">
+                            具体参考bootstrap官网
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">菜单名称：</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入菜单名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">控制器名称：</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入控制器名称">
+                        </div>
+                        <div class="col-sm-3 lh30">
+                            驼峰法命名
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">方法名称：</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入方法名称">
+                        </div>
+                        <div class="col-sm-3 lh30">
+                            驼峰法命名
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer tc">
+                <button type="button" ng-click="vm.openScPublic()" class="btn btn-info">提交保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除-->
+<alert-delete sure-delete="vm.sureDelete()"></alert-delete>

@@ -1,0 +1,336 @@
+/**
+*ALERT COMPONENT
+*/
+.alert-success,
+.alert-error {
+	position: fixed;
+	top: 40px;
+	left: 50%;
+	min-width: 200px;
+	padding: 10px 20px;
+	background: $success-color;
+	z-index: 9999;
+	color: $fff;
+	font-size: 22px;
+	text-align: center;
+	transform: translate(-50%, 0);
+	animation: move 2s ease-out;
+}
+
+.alert-error {
+	background: $error-color;
+}
+
+@keyframes move {
+
+	0% {
+		top: -40px;
+	}
+	10%, 100% {
+		top: 40px;
+	}
+}
+
+/**
+*PAGER COMPONENT
+*/
+.page-list {
+	&:after {
+		display: table;
+		content: '';
+		clear: both;
+	}
+	.pagination {
+		float: left;
+		margin: 0;
+		span {
+			cursor: pointer;
+		}
+		a {
+			color: $active-color;
+		}
+		.active a {
+			background: $active-color;
+			border-color: $active-color;
+			color: #fff;
+		}
+		.separate span {
+			cursor: default;
+			border-top: none;
+			border-bottom: none;
+			&:hover {
+				background: none;
+			}
+		}
+	}
+	.page-total {
+		float: right;
+		margin: 5px 0;
+		input, select {
+			height: 26px;
+			border: 1px solid #ddd;
+		}
+		input {
+			width: 40px;
+			padding-left: 3px;
+		}
+		select {
+			width: 50px;
+		}
+	}
+}
+
+/**
+*404 COMPONENT
+*/
+#beastainer {
+	float: right;
+	padding: 20px 0 20px 20px;
+	position: relative
+}
+
+#beast404le, #beast404re {
+	position: absolute;
+	animation-delay: 6s;
+	animation-duration: 7s;
+	animation-iteration-count: infinite;
+	animation-play-state: running
+}
+
+#beast404re {
+	left: 231px;
+	top: 68px;
+	animation-name: crazyrighteye
+}
+
+#beast404le {
+	left: 125px;
+	top: 65px;
+	animation-name: crazylefteye
+}
+
+@keyframes crazylefteye {
+	0% {
+		left: 125px;
+		top: 65px
+	}
+
+	10%, 20% {
+		left: 118px;
+		top: 56px
+	}
+
+	40% {
+		left: 148px;
+		top: 62px
+	}
+
+	50% {
+		left: 145px;
+		top: 72px
+	}
+
+	60% {
+		left: 121px;
+		top: 70px
+	}
+
+	100%, 70% {
+		left: 125px;
+		top: 65px
+	}
+}
+
+@keyframes crazyrighteye {
+	0% {
+		left: 231px;
+		top: 68px
+	}
+
+	10%, 20% {
+		left: 212px;
+		top: 62px
+	}
+
+	40% {
+		left: 239px;
+		top: 64px
+	}
+
+	50% {
+		left: 240px;
+		top: 80px
+	}
+
+	60% {
+		left: 215px;
+		top: 73px
+	}
+
+	100%, 70% {
+		left: 231px;
+		top: 68px
+	}
+}
+//.ng-table-counts{
+//	display: none;
+//}
+.btn-group{
+	display: none;
+}
+.ng-table th   .ng-table td{
+	text-align: center;
+}
+
+.ng-table th{
+	background-color: #f7f8fd;
+}
+.ng-table tr:nth-child(2n+2){
+	background-color: #f7f8fd;
+}
+.ng-table{
+	text-align: center;
+}
+
+.hui{
+	color: #a0a0a0;
+	cursor: default;
+}
+input:disabled{
+	border: 1px solid #DDD;
+	background-color: #fff;
+	color:#ACA899;
+	cursor: not-allowed;
+}
+.tab-left{
+	width: 30%;
+	display: inline-block;
+	text-align: right;
+}
+.form-control{
+	padding: 6px 0 6px 3px;
+	font-size: 12px;
+	margin-left: 0;
+}
+option[value="?"]{
+	display: none;
+}
+
+//ng-table 分页样式
+.pagination-wrap {
+	padding-bottom: 45px!important
+}
+
+.ng-table-pager,.page-list {
+	position: absolute;
+	left: 50%;
+	margin-top: 10px
+}
+
+.ng-table-pager .pagination,.page-list .pagination {
+	position: relative;
+	float: left;
+	left: -50%;
+	margin: 0
+}
+
+.ng-table-pager .pagination li,.page-list .pagination li {
+	list-style: none;
+	float: left;
+	margin-right: 10px
+}
+
+.ng-table-pager .pagination a,.page-list .pagination a {
+	display: block;
+	color: #000;
+	height: 24px;
+	min-width: 24px;
+	text-align: center;
+	line-height: 24px;
+	background: transparent;
+	border: 0;
+	padding: 0 5px;
+	border-radius: 4px
+}
+
+.ng-table-pager .pagination a:hover,.page-list .pagination a:hover {
+	background: transparent;
+	color: #000
+}
+
+.ng-table-pager .pagination .active a,.ng-table-pager .pagination a:active,.page-list .pagination .active a,.page-list .pagination a:active {
+	background: #0af;
+	color: #fff
+}
+
+.ng-table-pager .pagination .activehover a,.page-list .pagination .activehover a {
+	color: #fff;
+	cursor: default
+}
+
+.ng-table-pager .pagination .disabled a,.page-list .pagination .disabled a {
+	color: #999!important
+}
+
+.ng-table-pager .pagination .disabled a:active,.ng-table-pager .pagination .disabled a:hover,.page-list .pagination .disabled a:active,.page-list .pagination .disabled a:hover {
+	color: #999;
+	background: transparent!important;
+	cursor: default
+}
+
+.ng-table-pager .pagination li:first-child a:active,.ng-table-pager .pagination li:last-child a:active,.page-list .pagination li:first-child a:active,.page-list .pagination li:last-child a:active {
+	background: #0af;
+	color: #fff
+}
+
+.ng-table-pager .pagination .separate a,.page-list .pagination .separate a {
+	cursor: default
+}
+
+.ng-table-pager .pagination .separate a:active,.ng-table-pager .pagination .separate a:hover,.page-list .pagination .separate a:active,.page-list .pagination .separate a:hover {
+	color: #999;
+	background: transparent!important;
+	cursor: default
+}
+.m0{
+	margin: 0;
+}
+.ng-table th.sortable .sort-indicator {
+	display: inline-block;
+}
+.table>tbody>tr{
+
+}
+.table>tbody>tr>td{
+	padding: 10px;
+	vertical-align: middle;
+	border-bottom: 1px solid #e2e2e2;
+}
+.ng-table-sort-header th{
+	background-color: #e0e0e0;
+	height: 50px;
+}
+
+//这是总条数  总共*条
+.ng-isolate-scope{
+	height: 35px;
+}
+.bor-b{
+	border-bottom: 1px solid;
+}
+.mr5{
+	margin-right: 5px;
+}
+.fwN{
+	font-weight: normal;
+}
+a{color:#676a6c; text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {color:#676a6c;text-decoration:underline;}
+a:active {color:#676a6c;}
+body{
+	color: #676a6c;
+}
+.smallModal{
+	width: 600px;
+}
