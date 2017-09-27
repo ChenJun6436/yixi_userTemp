@@ -20,6 +20,10 @@
     'use strict';
     angular.module('app.chen', ['app.core']);
 })();
+(function() {
+    'use strict';
+    angular.module('app.jun', ['app.core']);
+})();
 /**
  * @Author: chenjun
  * @Date:   2017-09-21
@@ -32,19 +36,15 @@
 })();
 (function() {
     'use strict';
-    angular.module('app.jun', ['app.core']);
-})();
-(function() {
-    'use strict';
     angular.module('app.login', ['app.core']);
 })();
 (function() {
     'use strict';
-    angular.module('app.userManagement', ['app.core']);
+    angular.module('app.orderManagement', ['app.core']);
 })();
 (function() {
     'use strict';
-    angular.module('app.orderManagement', ['app.core']);
+    angular.module('app.userManagement', ['app.core']);
 })();
 /**
  * @Author: chenjun
@@ -93,6 +93,44 @@
         }
     }
 })();
+angular.module('app.core').directive('alertDelete',function(){
+    return {
+        restrict :"E",
+        //1: 指令形式，（E以元素存在）
+        scope:{sureDelete:'&sureDelete'},  //5:传入数据，模板上的变量名：“=指令上的属性名”；
+        template :
+        '<div class="modal fade modal-open" id="deleteMenu" tabindex="-1" role="dialog" aria-labelledby="addGrantsModal" style="top:50%;margin-top: -200px;height: 202px;overflow-y:hidden;">'+
+            '<div class="modal-dialog" style="width:450px;" role="document">'+
+                '<div class="modal-content">'+
+                    '<div class="modal-header h50">'+
+                        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">&times;</span></button>'+
+                            '<h4 class="modal-title fs16 lh30" id="addGrantsModal">确认删除{{x}}</h4>'+
+                        '</div>'+
+                    '<div class="modal-body">'+
+                        '<p>确定要删除吗？</p>'+
+                        '<div class="text-center mt30">'+
+                            '<button class="btn btn-primary" ng-click="sureDelete()">确定</button>'+
+                            '<button type="button" class="btn btn-default ml10" data-dismiss="modal" aria-label="Close">取消</button>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+        '</div>'
+        ,
+        replace:true,
+        //3： 是否替换掉自定指令元素
+        transclude:true,
+        //4： 处理指令里面的dom显示在哪里的，是否需要在
+        link:function(scope, element, attrs){
+            //自己用一个controller
+
+        }
+    }
+});
+/**
+ * Created by Administrator on 2017/9/27 0027.
+ */
+
 (function() {
 
     'use strict';
@@ -137,6 +175,43 @@
     function chenController($scope, $rootScope, $cookies, $state) {
         $scope.vm = {};
         console.log('wo s  chenCCCCCCCCCCCCCCCCCCCCCCCC')
+    }
+})();
+(function() {
+    'use strict';
+    angular.module('app.jun').run(appRun);
+    appRun.$inject = ['routerHelper'];
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        return [{
+            state: 'main.jun',
+            config: {
+                url: '/jun',
+                views: {
+                    'section@main': {
+                        templateUrl: 'static/dist/tpls/components/businesses/jun/jun.html',
+                        controller: 'junController'
+                    }
+                }
+            }
+        }];
+    }
+})();
+(function () {
+    'use strict';
+    angular.module('app.jun').controller('junController', junController);
+    junController.$inject = [
+        '$scope',
+        '$rootScope',
+        '$cookies',
+        '$state',
+    ];
+    function junController($scope, $rootScope, $cookies, $state) {
+        $scope.vm = {};
+        console.log($rootScope.userRole);
     }
 })();
 /**
@@ -272,43 +347,6 @@
 
 (function() {
     'use strict';
-    angular.module('app.jun').run(appRun);
-    appRun.$inject = ['routerHelper'];
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [{
-            state: 'main.jun',
-            config: {
-                url: '/jun',
-                views: {
-                    'section@main': {
-                        templateUrl: 'static/dist/tpls/components/businesses/jun/jun.html',
-                        controller: 'junController'
-                    }
-                }
-            }
-        }];
-    }
-})();
-(function () {
-    'use strict';
-    angular.module('app.jun').controller('junController', junController);
-    junController.$inject = [
-        '$scope',
-        '$rootScope',
-        '$cookies',
-        '$state',
-    ];
-    function junController($scope, $rootScope, $cookies, $state) {
-        $scope.vm = {};
-        console.log($rootScope.userRole);
-    }
-})();
-(function() {
-    'use strict';
     angular.module('app.login').run(appRun);
     appRun.$inject = ['routerHelper'];
     function appRun(routerHelper) {
@@ -388,6 +426,119 @@
             //     }
             // })
         // };
+    }
+})();
+(function () {
+
+    'use strict';
+
+    angular.module('app.orderManagement').controller('capitalManagementController', capitalManagementController);
+
+    capitalManagementController.$inject = [
+        '$scope',
+        '$rootScope',
+        '$cookies',
+        '$state',
+        'NgTableParams'
+    ];
+
+    function capitalManagementController($scope, $rootScope, $cookies, $state, NgTableParams) {
+        $scope.vm = {};
+        $scope.vm.menuList = [
+            {'PK':1,'menuName':'超级管理员','parentName':'heihei','menuLevelName':'陈俊'},
+            {'PK':1,'menuName':'一般管理员','parentName':'heihei','menuLevelName':'陈俊'},
+            {'PK':1,'menuName':'一级代理','parentName':'heihei','menuLevelName':'陈俊'},
+            {'PK':1,'menuName':'二级代理','parentName':'heihei','menuLevelName':'陈俊'},
+        ]
+        $scope.vm.tableParams = new NgTableParams(
+            { count: 100 },
+            { dataset: $scope.vm.menuList}
+        );
+        //初始化时间
+        laydate.render({
+            elem: '#startTime', //指定元素
+            range: '~',
+            theme: '#524f4f'
+        });
+    }
+})();
+(function () {
+
+    'use strict';
+
+    angular.module('app.orderManagement').controller('dealManagementController', dealManagementController);
+
+    dealManagementController.$inject = [
+        '$scope',
+        '$rootScope',
+        '$cookies',
+        '$state',
+        'NgTableParams'
+    ];
+
+    function dealManagementController($scope, $rootScope, $cookies, $state, NgTableParams) {
+        $scope.vm = {};
+        $scope.vm.menuList = [
+            {'PK':1,'menuName':'超级管理员','parentName':'heihei','menuLevelName':'陈俊'},
+            {'PK':1,'menuName':'一般管理员','parentName':'heihei','menuLevelName':'陈俊'},
+            {'PK':1,'menuName':'一级代理','parentName':'heihei','menuLevelName':'陈俊'},
+            {'PK':1,'menuName':'二级代理','parentName':'heihei','menuLevelName':'陈俊'},
+        ]
+        $scope.vm.tableParams = new NgTableParams(
+            { count: 100 },
+            { dataset: $scope.vm.menuList}
+        );
+        //初始化时间
+        //初始化时间
+        laydate.render({
+            elem: '#startTime', //指定元素
+            range: '~',
+            theme: '#524f4f'
+        });
+        laydate.render({
+            elem: '#completeTime', //指定元素
+            range: '~',
+            theme: '#524f4f'
+        });
+    }
+})();
+(function() {
+
+    'use strict';
+
+    angular.module('app.orderManagement').run(appRun);
+
+    appRun.$inject = ['routerHelper'];
+
+    function appRun(routerHelper) {
+        routerHelper.configureStates(getStates());
+    }
+
+    function getStates() {
+        console.log('wo s chen Router')
+        return [{
+            state: 'main.capitalManagement',
+            config: {
+                url: '/capitalManagement',
+                views: {
+                    'section@main': {
+                        templateUrl: 'static/dist/tpls/components/businesses/orderManagement/capitalManagement.html',
+                        controller: 'capitalManagementController'
+                    }
+                }
+            }
+        },{
+            state: 'main.dealManagement',
+            config: {
+                url: '/dealManagement',
+                views: {
+                    'section@main': {
+                        templateUrl: 'static/dist/tpls/components/businesses/orderManagement/dealManagement.html',
+                        controller: 'dealManagementController'
+                    }
+                }
+            }
+        }];
     }
 })();
 (function () {
@@ -662,157 +813,6 @@
 
     }
 })();
-(function () {
-
-    'use strict';
-
-    angular.module('app.orderManagement').controller('capitalManagementController', capitalManagementController);
-
-    capitalManagementController.$inject = [
-        '$scope',
-        '$rootScope',
-        '$cookies',
-        '$state',
-        'NgTableParams'
-    ];
-
-    function capitalManagementController($scope, $rootScope, $cookies, $state, NgTableParams) {
-        $scope.vm = {};
-        $scope.vm.menuList = [
-            {'PK':1,'menuName':'超级管理员','parentName':'heihei','menuLevelName':'陈俊'},
-            {'PK':1,'menuName':'一般管理员','parentName':'heihei','menuLevelName':'陈俊'},
-            {'PK':1,'menuName':'一级代理','parentName':'heihei','menuLevelName':'陈俊'},
-            {'PK':1,'menuName':'二级代理','parentName':'heihei','menuLevelName':'陈俊'},
-        ]
-        $scope.vm.tableParams = new NgTableParams(
-            { count: 100 },
-            { dataset: $scope.vm.menuList}
-        );
-        //初始化时间
-        laydate.render({
-            elem: '#startTime', //指定元素
-            range: '~',
-            theme: '#524f4f'
-        });
-    }
-})();
-(function () {
-
-    'use strict';
-
-    angular.module('app.orderManagement').controller('dealManagementController', dealManagementController);
-
-    dealManagementController.$inject = [
-        '$scope',
-        '$rootScope',
-        '$cookies',
-        '$state',
-        'NgTableParams'
-    ];
-
-    function dealManagementController($scope, $rootScope, $cookies, $state, NgTableParams) {
-        $scope.vm = {};
-        $scope.vm.menuList = [
-            {'PK':1,'menuName':'超级管理员','parentName':'heihei','menuLevelName':'陈俊'},
-            {'PK':1,'menuName':'一般管理员','parentName':'heihei','menuLevelName':'陈俊'},
-            {'PK':1,'menuName':'一级代理','parentName':'heihei','menuLevelName':'陈俊'},
-            {'PK':1,'menuName':'二级代理','parentName':'heihei','menuLevelName':'陈俊'},
-        ]
-        $scope.vm.tableParams = new NgTableParams(
-            { count: 100 },
-            { dataset: $scope.vm.menuList}
-        );
-        //初始化时间
-        //初始化时间
-        laydate.render({
-            elem: '#startTime', //指定元素
-            range: '~',
-            theme: '#524f4f'
-        });
-        laydate.render({
-            elem: '#completeTime', //指定元素
-            range: '~',
-            theme: '#524f4f'
-        });
-    }
-})();
-(function() {
-
-    'use strict';
-
-    angular.module('app.orderManagement').run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        console.log('wo s chen Router')
-        return [{
-            state: 'main.capitalManagement',
-            config: {
-                url: '/capitalManagement',
-                views: {
-                    'section@main': {
-                        templateUrl: 'static/dist/tpls/components/businesses/orderManagement/capitalManagement.html',
-                        controller: 'capitalManagementController'
-                    }
-                }
-            }
-        },{
-            state: 'main.dealManagement',
-            config: {
-                url: '/dealManagement',
-                views: {
-                    'section@main': {
-                        templateUrl: 'static/dist/tpls/components/businesses/orderManagement/dealManagement.html',
-                        controller: 'dealManagementController'
-                    }
-                }
-            }
-        }];
-    }
-})();
-angular.module('app.core').directive('alertDelete',function(){
-    return {
-        restrict :"E",
-        //1: 指令形式，（E以元素存在）
-        scope:{sureDelete:'&sureDelete'},  //5:传入数据，模板上的变量名：“=指令上的属性名”；
-        template :
-        '<div class="modal fade modal-open" id="deleteMenu" tabindex="-1" role="dialog" aria-labelledby="addGrantsModal" style="top:50%;margin-top: -200px;height: 202px;overflow-y:hidden;">'+
-            '<div class="modal-dialog" style="width:450px;" role="document">'+
-                '<div class="modal-content">'+
-                    '<div class="modal-header h50">'+
-                        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><spanaria-hidden="true">&times;</span></button>'+
-                            '<h4 class="modal-title fs16 lh30" id="addGrantsModal">确认删除{{x}}</h4>'+
-                        '</div>'+
-                    '<div class="modal-body">'+
-                        '<p>确定要删除吗？</p>'+
-                        '<div class="text-center mt30">'+
-                            '<button class="btn btn-primary" ng-click="sureDelete()">确定</button>'+
-                            '<button type="button" class="btn btn-default ml10" data-dismiss="modal" aria-label="Close">取消</button>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-            '</div>'+
-        '</div>'
-        ,
-        replace:true,
-        //3： 是否替换掉自定指令元素
-        transclude:true,
-        //4： 处理指令里面的dom显示在哪里的，是否需要在
-        link:function(scope, element, attrs){
-            //自己用一个controller
-
-        }
-    }
-});
-/**
- * Created by Administrator on 2017/9/27 0027.
- */
-
 /**
  * @Author: chenjun
  * @Date:   2017-09-21
