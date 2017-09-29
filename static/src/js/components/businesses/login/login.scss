@@ -1,14 +1,18 @@
 .login{
 	.login-box{
-		background: url("../images/paybg.jpg") ;
-		color: #fff;
-		height: 600px;
+		height: 100%;
+		background: url("../images/paybg.jpg");
+		color: #a0a0a0;
 		.user-login{
-			width: 400px;
+			width: 300px;
 			position: absolute;
-			left: 50%;
-			margin-left: -200px;
+			right: 10%;
 			top:20%;
+			background-color: #fff;
+			border-radius: 10px;
+		}
+		.user-register{
+			@extend .user-login
 		}
 	}
 	.partner{
@@ -73,13 +77,11 @@
 		}
 	}
 	.copyright {
-		background: #111;
 		font-size: 13px;
 		text-align: center;
-		color: #555555;
+		color: #f7f7f7;
 		padding-top: 28px;
 		padding-bottom: 28px;
-		border-top: 1px solid #303030;
 		position: fixed;
 		bottom: 0;
 		width: 100%;

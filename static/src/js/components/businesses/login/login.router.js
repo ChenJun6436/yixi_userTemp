@@ -7,13 +7,35 @@
     }
 
     function getStates() {
-        return [{
-            state: 'login',
-            config: {
-                url: '/login',
-                templateUrl: 'static/dist/tpls/components/businesses/login/login.html',
-                controller: 'loginController'
+        return [
+            {
+                state: 'login',
+                config: {
+                    url: '/login',
+                    views: {
+                        '': {
+                            templateUrl: 'static/dist/tpls/components/businesses/login/inlogin.html',
+                            controller: ['$state','$scope', '$rootScope', function ($state, $scope, $rootScope) {
+                                    $scope.login = true;
+                                $scope.showRegister = function () {
+                                    $scope.login = !$scope.login;
+                                    if($scope.login){
+
+                                    }
+                                }
+                            }]
+                        },
+                        'login@login': {
+                            templateUrl: 'static/dist/tpls/components/businesses/login/login.html',
+                            controller: 'loginController'
+                        },
+                        'register@login': {
+                            templateUrl: 'static/dist/tpls/components/businesses/login/register.html',
+                            controller: 'registerController'
+                        }
+                    }
+                }
             }
-        }];
+        ];
     }
 })();

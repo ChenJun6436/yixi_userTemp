@@ -7,15 +7,15 @@
      * 助学金辅导员服务
      */
     'use strict';
-    angular.module('app.core').factory('grantsAdvisorServer', grantsAdvisorServer);
+    angular.module('app.core').factory('layOutServer', layOutServer);
 
-    grantsAdvisorServer.$inject = ['httpServer'];
+    layOutServer.$inject = ['httpServer'];
 
-    function grantsAdvisorServer(httpServer) {
+    function layOutServer(httpServer) {
         var myServices = {};
-        //本学年评定经济困难但未申请助学金
-        myServices.notApply = function (data) {
-            return httpServer.get('/grantsAdvisor/povertyNotApply', data);
+        //获取一级菜单
+        myServices.getMenus = function (data) {
+            return httpServer.get('/menus', data);
         };
         //s
 

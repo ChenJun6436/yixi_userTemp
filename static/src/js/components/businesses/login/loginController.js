@@ -11,6 +11,7 @@
     function loginController($scope, $rootScope, $cookies, $state) {
         $scope.vm = {
             user: {},
+            // login: true,
             canClick: false,
             loginErrorTitle: '账号认证不通过',
             loginErrorMessage: '请联系管理员开通'
@@ -27,7 +28,6 @@
                     name: $scope.vm.user.userName,
                     pwd: $scope.vm.user.passWords
                 });
-                console.log($cookies.getObject('user'))
                 if($cookies.getObject('user').name == '1'){
                     $scope.vm.loginError = true
                     $scope.vm.closeLoginError = function () {
@@ -36,10 +36,24 @@
                     }
                 }else {
                     $rootScope.userName = $cookies.getObject('user').name;
-                    $state.go('main.authorityManagement');
+                    $state.go('main.userData');
                 }
             }else {
                 $btn.button('reset')
+            }
+        })
+        $('[name="status"]').bootstrapSwitch({
+            onText:"记住账号",
+            offText:"不保存账号",
+            onColor:"success",
+            offColor:"defult",
+            size:"small",
+            onSwitchChange:function(event,state){
+                if(state==true){
+                    $(this).val("1");
+                }else{
+                    $(this).val("2");
+                }
             }
         })
         // $scope.vm.login = function () {
@@ -60,5 +74,12 @@
             //     }
             // })
         // };
+        //点击注册
+        // $scope.vm.showRegister = function () {
+        //     $scope.vm.login = false;
+        // }
+        $scope.vm.register = function () {
+            console.log(11111)
+        }
     }
 })();

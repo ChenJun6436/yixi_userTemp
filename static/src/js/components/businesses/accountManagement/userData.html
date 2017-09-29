@@ -1,0 +1,92 @@
+<div class="authorityManagement">
+    <div class="main-content-header">
+        <span>资金变动管理</span>
+        <span class="fr"><span class="glyphicon glyphicon-refresh cursor-pointer"></span></span>
+    </div>
+    <div class="lf-border-box">
+        <span class="text-danger">谨慎修改用户信息，胡乱填写一律禁封账号处理</span>
+    </div>
+    <div>
+        <form class="form-horizontal mt20" name="vm.userForm" novalidate>
+            <div class="form-group">
+                <label for="uname" class="col-md-2 col-lg-1 col-sm-3 control-label w110">姓名：</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="uname" placeholder="姓名" name="uname"
+                        ng-model="aa"
+                        required>
+                </div>
+                <div class="col-sm-5 lh30">
+                    <span class="text-danger" ng-if="vm.userForm.uname.$invalid && vm.uSubmit">*姓名不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ucard" class="col-md-2 col-lg-1 col-sm-3 control-label w110">身份证号：</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="ucard" placeholder="身份证号" name="ucard"
+                        ng-model="aa"
+                        required>
+                </div>
+                <div class="col-sm-5 lh30">
+                    <span class="text-danger" ng-if="vm.userForm.ucard.$invalid && vm.uSubmit">*身份证号不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="uphone" class="col-md-2 col-lg-1 col-sm-3 control-label w110">手机号：</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="uphone" placeholder="手机" name="uphone"
+                        ng-model="aa"
+                        required>
+                </div>
+                <div class="col-sm-5 lh30">
+                    <span class="text-danger" ng-if="vm.userForm.uphone.$invalid && vm.uSubmit">*手机不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="uqq" class="col-md-2 col-lg-1 col-sm-3 control-label w110">Q Q号：</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="uqq" placeholder="Q Q" name="uqq"
+                        ng-model="aa"
+                        required>
+                </div>
+                <div class="col-sm-5 lh30">
+                    <span class="text-danger" ng-if="vm.userForm.uqq.$invalid && vm.uSubmit">*Q Q不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="usex" class="col-md-2 col-lg-1 col-sm-3 control-label w110">性别：</label>
+                <div class="col-sm-3">
+                    <input id="usex" name="status" type="checkbox" data-size="small" value="vm.bb">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="uadress" class="col-md-2 col-lg-1 col-sm-3 control-label w110">联系地址：</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="uadress" placeholder="联系地址" name="uadress"
+                        ng-model="vm.aa"
+                        required>
+                </div>
+                <div class="col-sm-4 lh30">
+                    <span class="text-danger" ng-if="vm.userForm.uadress.$invalid && vm.uSubmit">*地址不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 col-lg-1 col-sm-3 control-label w110"></label>
+                <button class="btn btn-warning ml15" style="height: 32px" ng-click="vm.putUser()">立即提交</button>
+                <button type="reset" class="btn btn-default ml20" style="height: 32px">重置</button>
+            </div>
+        </form>
+    </div>
+    <div class="lf-border-box">
+        <span class="text-primary">请上传：身份证正反面、正面手持身份证、营业执照、银行卡正反面_共计6张图片。</span>
+    </div>
+    <div class="h100px">
+        <div class="form-group">
+            <div class="col-sm-1">
+                <input  type="file"  nv-file-select  uploader ="uploader"/>
+            </div>
+            <div class="col-sm-5 lh30">
+                <span class="text-danger" ng-if="vm.userForm.ufile.$invalid && vm.uSubmit">*姓名不能为空</span>
+            </div>
+        </div>
+    </div>
+</div>

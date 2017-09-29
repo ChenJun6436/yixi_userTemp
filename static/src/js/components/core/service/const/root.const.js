@@ -7,5 +7,5 @@
     /**
      * 常量
      */
-    angular.module('app.core').constant('ROOT', '');
+    angular.module('app.core').constant('ROOT', 'http://192.168.2.19:20000');
 })();

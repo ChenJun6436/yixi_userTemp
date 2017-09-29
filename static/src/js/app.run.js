@@ -40,8 +40,7 @@
                 ];
                 //用户判断去哪个页面,特定用户添加router
                 premissionArr = premissionArr.concat([
-                    'main.chen',
-                    'main.authorityManagement',
+                    'main.userData',
                     'main.roleManagement',
                     'main.userManagement',
                     'main.dealManagement',

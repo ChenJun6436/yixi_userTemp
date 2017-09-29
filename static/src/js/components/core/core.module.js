@@ -7,5 +7,6 @@
         'app.helper',
         'ngCookies',
         'ngTable',
+        'FileUploader'
     ]);
 })();

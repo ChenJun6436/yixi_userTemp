@@ -9,9 +9,7 @@
         'app.core',
         'app.layout',
         'app.login',
-        'app.chen',
-        'app.jun',
-        'app.userManagement',
-        'app.orderManagement'
+        'app.accountManagement',
+        'app.userManagement'
     ]);
 })();
