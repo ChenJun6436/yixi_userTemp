@@ -854,6 +854,17 @@ angular.module('app.core').directive('alertDelete',function(){
  */
 (function () {
     'use strict';
+    /**
+     * 常量
+     */
+    angular.module('app.core').constant('ROOT', 'http://192.168.2.19:20000');
+})();
+/**
+ * @Author: chenjun
+ * @Date:   2017-09-21
+ */
+(function () {
+    'use strict';
     angular.module('app.core').factory('httpServer', httpServer);
 
     httpServer.$inject = ['$http', '$q', 'ROOT'];
@@ -1045,12 +1056,27 @@ angular.module('app.core').directive('alertDelete',function(){
  * @Date:   2017-09-21
  */
 (function () {
-    'use strict';
     /**
-     * 常量
+     * 助学金辅导员服务
      */
-    angular.module('app.core').constant('ROOT', 'http://192.168.2.19:20000');
+    'use strict';
+    angular.module('app.core').factory('layOutServer', layOutServer);
+
+    layOutServer.$inject = ['httpServer'];
+
+    function layOutServer(httpServer) {
+        var myServices = {};
+        //获取一级菜单
+        myServices.getMenus = function (data) {
+            return httpServer.get('/menus', data);
+        };
+        //s
+
+
+        return myServices;
+    }
 })();
+
 /**
  * @Author: chenjun
  * @Date:   2017-09-21
